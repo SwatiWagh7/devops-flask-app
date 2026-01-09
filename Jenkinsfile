@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "swatiakshaywagh/devops-flask-app"
-        DOCKER_TAG   = "1.0"
+        DOCKER_TAG = "1.0"
     }
 
     stages {
@@ -42,10 +42,10 @@ pipeline {
 
     post {
         success {
-            echo "✅ Docker image built and pushed successfully"
+            echo "Docker image built and pushed successfully"
         }
         failure {
-            echo "❌ Pipeline failed"
+            echo "Pipeline failed"
         }
     }
 }
