@@ -79,7 +79,7 @@ HTML_TEMPLATE = """
     </div>
 
     <div class="card">
-        <h2>🔁 Deployment Info</h2>
+        <h2>🔁 Deployment Information</h2>
         <p>
             This application was <span class="highlight">automatically deployed</span>
             using a Jenkins pipeline.
