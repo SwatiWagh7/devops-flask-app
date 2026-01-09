@@ -68,7 +68,7 @@ HTML_TEMPLATE = """
     </div>
 
     <div class="card">
-        <h2>⚙️ Tools Used</h2>
+        <h2>⚙️ Tools Used : </h2>
         <ul>
             <li>Git – Source Code Management</li>
             <li>Jenkins – CI/CD Automation</li>
