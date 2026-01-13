@@ -68,7 +68,7 @@ HTML_TEMPLATE = """
     </div>
 
     <div class="card">
-        <h2>⚙️ Tools Used</h2>
+        <h2>⚙️ Tools Used are below : </h2>
         <ul>
             <li>Git – Source Code Management</li>
             <li>Jenkins – CI/CD Automation</li>
@@ -79,7 +79,7 @@ HTML_TEMPLATE = """
     </div>
 
     <div class="card">
-        <h2>🔁 Deployment Info</h2>
+        <h2>🔁 Deployment Information</h2>
         <p>
             This application was <span class="highlight">automatically deployed</span>
             using a Jenkins pipeline.
@@ -92,7 +92,7 @@ HTML_TEMPLATE = """
 </section>
 
 <footer>
-    © 2026 | DevOps Intern Project
+    © 2026 | Cloud-DevOps Intern Project
 </footer>
 
 </body>
