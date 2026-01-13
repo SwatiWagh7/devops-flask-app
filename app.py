@@ -59,7 +59,7 @@ HTML_TEMPLATE = """
 <section>
 
     <div class="card">
-        <h2>📌 Project Overview</h2>
+        <h2> Project Overview</h2>
         <p>
             This Python Flask application demonstrates a complete
             <span class="highlight">CI/CD automation workflow</span>
