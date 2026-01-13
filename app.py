@@ -52,7 +52,7 @@ HTML_TEMPLATE = """
 <body>
 
 <header>
-    <h1>🚀 DevOps CI/CD Auto Deployment</h1>
+    <h1>🚀 DevOps CI/CD Auto Deployment Project</h1>
     <p>Python Flask | Jenkins | Docker | Kubernetes</p>
 </header>
 
