@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "swatiakshaywagh/devops-flask-app"
-        DOCKER_TAG = "1.0"
+        DOCKER_IMAGE = 'swatiakshaywagh/devops-flask-app'
+        DOCKER_TAG   = '1.0'
     }
 
     stages {
@@ -38,24 +38,24 @@ pipeline {
                 sh 'docker push $DOCKER_IMAGE:$DOCKER_TAG'
             }
         }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                sh '''
+                kubectl apply -f k8s/deployment.yaml
+                kubectl apply -f k8s/service.yaml
+                '''
+            }
+        }
     }
 
     post {
         success {
-            echo "Docker image built and pushed successfully"
+            echo "Docker image built, pushed, and deployed to Kubernetes successfully"
         }
         failure {
             echo "Pipeline failed"
         }
     }
 }
-	stage('Deploy to Kubernetes') {
-    steps {
-        sh '''
-        kubectl apply -f k8s/deployment.yaml
-        kubectl apply -f k8s/service.yaml
-        '''
-    }
-}
-
 
