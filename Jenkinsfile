@@ -1,56 +1,27 @@
-pipipeline {
+pipeline {
     agent any
-
-    environment {
-        DOCKER_IMAGE = "swatiakshaywagh/devops-flask-app"
-        DOCKER_TAG = "1.0"
-    }
 
     stages {
 
-        stage('Clone Repository') {
+        stage('Checkout') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/SwatiWagh7/devops-flask-app.git'
+                checkout scm
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE:$DOCKER_TAG .'
+                sh 'docker build -t swatiwagh/devops-flask-app:latest .'
             }
         }
 
-        stage('Docker Login') {
+        stage('Push Docker Image') {
             steps {
-                withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
-                    usernameVariable: 'DOCKER_USER',
-                    passwordVariable: 'DOCKER_PASS'
-                )]) {
-                    sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
-                }
+                sh 'docker push swatiwagh/devops-flask-app:latest'
             }
         }
 
-        stage('Push Image to Docker Hub') {
-            steps {
-                sh 'docker push $DOCKER_IMAGE:$DOCKER_TAG'
-            }
-        }
-    }
-
-    post {
-        success {
-            echo "Docker image built and pushed successfully"
-        }
-        failure {
-            echo "Pipeline failed"
-        }
-    }
-}
-
-	 stage('Deploy to Kubernetes') {
+        stage('Deploy to Kubernetes') {
             steps {
                 sh '''
                 kubectl apply -f k8s/deployment.yaml
@@ -58,5 +29,7 @@ pipipeline {
                 '''
             }
         }
+
     }
 }
+
