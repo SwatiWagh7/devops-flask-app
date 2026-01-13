@@ -92,7 +92,7 @@ HTML_TEMPLATE = """
 </section>
 
 <footer>
-    © 2026 | Cloud DevOps Intern Project
+    © 2026 | Cloud-DevOps Intern Project
 </footer>
 
 </body>
