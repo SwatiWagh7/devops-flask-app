@@ -7,7 +7,7 @@ HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DevOps CI/CD Auto Deployment</title>
+    <title>DevOps CI/CD Auto Deployment Project</title>
     <style>
         body {
             font-family: Arial, sans-serif;
