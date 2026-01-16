@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'swatiakshaywagh/devops-flask-app'
-        DOCKER_TAG   = '1.0'
+        DOCKER_IMAGE = "swatiakshaywagh/devops-flask-app"
+        DOCKER_TAG = "1.0"
     }
 
     stages {
 
-        stage('Clone Repository') {
+        stage('Clone Repo') {
             steps {
                 git branch: 'main',
                     url: 'https://github.com/SwatiWagh7/devops-flask-app.git'
@@ -33,13 +33,13 @@ pipeline {
             }
         }
 
-        stage('Push Image to Docker Hub') {
+        stage('Push Docker Image') {
             steps {
                 sh 'docker push $DOCKER_IMAGE:$DOCKER_TAG'
             }
         }
 
-        stage('Deploy to Kubernetes') {
+        stage('Deploy To Kubernetes') {
             steps {
                 sh '''
                 kubectl apply -f k8s/deployment.yaml
@@ -51,10 +51,10 @@ pipeline {
 
     post {
         success {
-            echo "Docker image built, pushed, and deployed to Kubernetes successfully"
+            echo "✅ CI/CD Pipeline Completed Successfully"
         }
         failure {
-            echo "Pipeline failed"
+            echo "❌ Pipeline Failed"
         }
     }
 }
